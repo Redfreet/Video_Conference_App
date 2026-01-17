@@ -1,9 +1,5 @@
 import dotenv from "dotenv";
 
-if (process.env.NODE_ENV != "production") {
-  dotenv.config();
-}
-
 import express from "express";
 import { createServer } from "node:http";
 
@@ -12,6 +8,10 @@ import userRoutes from "./routes/users.routes.js";
 
 import mongoose from "mongoose";
 import cors from "cors";
+
+if (process.env.NODE_ENV != "production") {
+  dotenv.config();
+}
 
 const app = express();
 const server = createServer(app);
